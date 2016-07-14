@@ -1,12 +1,12 @@
 Minha ideia:
 
-Eu e alguns amigos do serviço nas horas vagas nos juntamos para jogar fifa (futebol virtual), então fazemos um campeonato entre a galera, quando nos encontramos porem muitas vezes não há a possibilidade de todos comparecerem e marcamos online com a pessoa para jogar e que o jogo passe a ser valido para o campeonato.
+Eu e alguns amigos do serviço nas horas vagas nos juntamos para jogar fifa (futebol virtual), então fazemos um campeonato entre a galera quando nos encontramos, porem muitas vezes não há a possibilidade de todos comparecerem e marcamos online com a pessoa para jogar e que o jogo passe a ser valido para o campeonato.
 
 Hoje controlamos tudo via planilha, e como estou fazendo o curso do be-mean surgiu a ideia de fazer utilizando os conhecimentos obtidos durante o curso, para exercitar mesmo e ir aplicando o que foi aprendido em cada aula nesta app.
 
 A ideia é controlar o campeonato online. 
 
-No sistema havera campeontos que possuem equipes, jogos e classificação. Alem dos usuarios do sistema que possuirão times que faram serao inscritos em um campeonato.
+No sistema havera campeontos que possuem equipes, jogos e classificação. Alem disto os usuarios do sistema possuirão times que serão inscritos em um campeonato.
 
 As coleções:
 CAMPEONATO 
