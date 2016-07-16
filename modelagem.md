@@ -8,7 +8,7 @@ A ideia é controlar o campeonato online.
 
 No sistema havera campeontos que possuem equipes, jogos e classificação. Alem disto os usuarios do sistema possuirão times que serão inscritos em um campeonato.
 
-As coleções:
+As coleções:   
 CAMPEONATO 
 ```js
 'use strict';
@@ -142,7 +142,7 @@ USUARIO
 ```
 
 Dúvidas quando a modelagem:  
-•	A modelagem NOSQL ficou de forma satisfatória? Como estou acostumado com modelagem relacional esta parte ainda me deixa dúvidas. 
-•	Jogos, Classificação que estao separadas e Equipes que esta dentro da coleção campeonatos, devem ser coleções separadas ou juntas a campeonato?  
+•	A modelagem NOSQL ficou de forma satisfatória? Como estou acostumado com modelagem relacional esta parte ainda me deixa dúvidas.    
+•	Jogos, Classificação que estao separadas e Equipes que esta dentro da coleção campeonatos, devem ser coleções separadas ou juntas a campeonato?     
 •	Na coleção de jogos, pensando na ideia online, para uma pessoa não ter que ficar atualizando sozinha todo o campeonado pensei na criação de um array auditoria onde os próprios jogadores da rodada colocam o resultado do jogo entre eles, se o resultado for igual o sistema assume aquele resultado como o oficial e realiza as atualizações, se for diferente neste caso o administrador da liga deve verificar e informar o resultado manualmente.  
 •	A coleção de usuário apenas coloquei para ter uma ideia, mais depois a ideia é ver por exemplo a utilização do passport para definir melhor esta coleção.  
