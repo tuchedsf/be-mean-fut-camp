@@ -207,6 +207,6 @@ Abaixo exemplo como serão retornados os erros da api...
 ### Referências Bibliograficas
 
 - Curso Be-Mean Instagram - [https://github.com/Webschool-io/be-mean-instagram](https://github.com/Webschool-io/be-mean-instagram)
-    + Criar api node e autenticar com Web Tokens JWT - (https://rcdevlabs.github.io/2015/02/12/como-criar-uma-api-restfull-em-nodejs-e-autenticar-usando-json-web-token-jwt/)
-    + Webinar Design de APIs RESTful - Sensedia - (https://www.youtube.com/watch?v=psLrAsdHltQ) 
-    + Testing Node.js with Mocha and Chai - (http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/)
+- Criar api node e autenticar com Web Tokens JWT - [https://rcdevlabs.github.io/2015/02/12/como-criar-uma-api-restfull-em-nodejs-e-autenticar-usando-json-web-token-jwt/](https://rcdevlabs.github.io/2015/02/12/como-criar-uma-api-restfull-em-nodejs-e-autenticar-usando-json-web-token-jwt/)
+- Webinar Design de APIs RESTful - Sensedia - [https://www.youtube.com/watch?v=psLrAsdHltQ] (https://www.youtube.com/watch?v=psLrAsdHltQ) 
+- Testing Node.js with Mocha and Chai - [http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/](http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/)
