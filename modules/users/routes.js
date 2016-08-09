@@ -17,7 +17,8 @@ router.post('/new', (req, res) => {
 
 router.get('/find', UserModel.validarAutenticacao,  (req,res,next) =>{
 	console.log('find');
-		 const page = 2;
+		 const page = req.query.page ? req.query.page : 1;
+     //const page = 2;
      const q = req.query.q;
      const query = q ? {email: q} : {};
      //console.log(query);
