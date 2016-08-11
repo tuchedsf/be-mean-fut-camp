@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const classificacaoSchema = require('../../classificacao/molecules/molecule');
 //const jogosSchema = require('../../jogos/molecules/molecule');
-//const equipeSchema = require('../../equipes/molecules/molecule');
 
 const nome = { type: String, required: true }; 
 const mata_mata = { type: Boolean, required: true, default: false }; 
+const idaVolta = { type: Boolean, required: true, default: false }; 
 const qtde_equipes = { type: Number, required: true, min: 2, max: 100 }; 
 const qtde_grupos = { type: Number, required: true, min: 1, max: 25 };
 const qtde_equipes_classificadas = { type: Number, required: true, min: 1 };
@@ -27,7 +27,8 @@ const created_at = { type: Date, default: Date.now };
 const _schema = {
 		nome 
 	, mata_mata
-  , qtde_equipes
+	, idaVolta
+  	, qtde_equipes
 	, qtde_grupos
 	, qtde_equipes_classificadas
 	, qtde_equipes_rebaixadas

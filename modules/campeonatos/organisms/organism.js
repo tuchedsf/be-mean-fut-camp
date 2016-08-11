@@ -13,7 +13,7 @@ const adicionarOrganizador = require('../actions/action-organizador-adicionar')(
 const removerOrganizador = require('../actions/action-organizador-remover')(Campeonato);
 const adicionarEquipe = require('../actions/action-equipes-adicionar')(Campeonato);
 const removerEquipe = require('../actions/action-equipes-remover')(Campeonato);
-const gerarTabelasClassif = require('../actions/action-gerar-tabelas')(Campeonato);
+const gerarClassificacao = require('../actions/action-gerar-classificacao')(Campeonato);
 //const classificar = require('../actions/action-autenticarUsuario')(Campeonato);
 //const gerarJogos = require('../actions/action-validarAutenticacao')(Campeonato);
 
@@ -30,7 +30,7 @@ const campeonatoMethods = {
 	, removerOrganizador
   , adicionarEquipe
 	, removerEquipe
-  , gerarTabelasClassif
+  , gerarClassificacao
 };
 
 module.exports = campeonatoMethods;

@@ -23,7 +23,7 @@ module.exports = (Model) => {
 				return callback(error.campeonatoUserinvalid, '', res, 1, 1);
 			}
 
-      //if ( isEquipeJaInscritaCampeonato(equipe, data.equipes) ) return callback(error.equipeJaInscrita, '', res, 1, 1);
+      if ( isEquipeJaInscritaCampeonato(equipe, data.equipes) ) return callback(error.equipeJaInscrita, '', res, 1, 1);
 
       data.equipes.push(equipe);
   

@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 
 const campeonato_id = { type:Schema.Types.ObjectId, ref:'Campeonato'};
 const grupo = { type: Number, required: true };
-//const time = { type: Number }; // identificador na lista de times do campeonato
 const equipe_id = { type:Schema.Types.ObjectId, ref:'Equipe'};
 const jogos = { type: Number, required: true, default: 0 }; //numero de jogos jogados
 const pontos = { type: Number, required: true, default: 0 }; //numero de pontos conquistados
