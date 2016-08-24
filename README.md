@@ -13,6 +13,8 @@ A ideia é controlar o campeonato online.
 ### Observações 
     + os testes de crud acabaram que ficaram juntos com o testes de requisiçoes.
         * acredito que teriam que ser divididos em 1 teste de crud, e outro teste de retorno das requisiçoes
+    + para geração dos jogos foi utilizado a regra mostrada no item algoritmo para marcação de jogos do artigo, 
+    (https://pt.wikipedia.org/wiki/Competi%C3%A7%C3%B5es_de_todos_contra_todos#O_sistema_no_futebol_brasileiro)[https://pt.wikipedia.org/wiki/Competi%C3%A7%C3%B5es_de_todos_contra_todos#O_sistema_no_futebol_brasileiro]
 
 ### Melhorias a serem feitas
     + Melhorar os testes
@@ -210,3 +212,4 @@ Abaixo exemplo como serão retornados os erros da api...
 - Criar api node e autenticar com Web Tokens JWT - [https://rcdevlabs.github.io/2015/02/12/como-criar-uma-api-restfull-em-nodejs-e-autenticar-usando-json-web-token-jwt/](https://rcdevlabs.github.io/2015/02/12/como-criar-uma-api-restfull-em-nodejs-e-autenticar-usando-json-web-token-jwt/)
 - Webinar Design de APIs RESTful - Sensedia - [https://www.youtube.com/watch?v=psLrAsdHltQ] (https://www.youtube.com/watch?v=psLrAsdHltQ) 
 - Testing Node.js with Mocha and Chai - [http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/](http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/)
+- Competiçoes regras [https://pt.wikipedia.org/wiki/Competi%C3%A7%C3%B5es_de_todos_contra_todos#O_sistema_no_futebol_brasileiro](https://pt.wikipedia.org/wiki/Competi%C3%A7%C3%B5es_de_todos_contra_todos#O_sistema_no_futebol_brasileiro)

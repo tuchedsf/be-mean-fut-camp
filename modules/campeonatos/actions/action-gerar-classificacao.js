@@ -1,27 +1,40 @@
-'use strict';
+// 'use strict';
 
 const callback = require('./callback');
 const error = require('../quarks/quark-errors-codes');
 const isEquipesModGruposNE0 = require('../quarks/quark-isEquipesModGruposNE0');
 const isEmpty = require('../quarks/quark-isEmpty');
 
+
+const ClassificacaoSchema = require('../../classificacao/molecules/molecule');
+const Classificacao = require('../../../modules/model')('Classificacao',ClassificacaoSchema);
+
+
+
 module.exports = (Model) => {
   return (res, idCamp) => {
-		// busca campeonato...
+    // busca campeonato...
     Model.findOne({ _id: idCamp }, (err, data) => {
       if (err) return callback(error.falhaBuscarCamp, '', res, 1, 1);
 
       if (isEmpty(data)) return callback(error.campeonatoUserinvalid, '', res, 1, 1);
 
-      if (!isEmpty(data.classificacao)) return callback(error.classificacaoJaGerada, '', res, 1, 1);
+      if (data.classificacao.length > 0) {
+        return callback(error.classificacaoJaGerada, '', res, 1, 1);
+      }
 
-      if (isEquipesModGruposNE0(data.qtde_equipes, data.qtde_grupos)) return callback(error.numeroEquipesNDivisivel, '', res, 1, 1);
+      if (isEquipesModGruposNE0(data.qtde_equipes, data.qtde_grupos)) {
+        return callback(error.numeroEquipesNDivisivel, '', res, 1, 1);
+      }
 
       const qtdeEquipePorGrupo = data.qtde_equipes / data.qtde_grupos;
 
       if (data.qtde_grupos === 1) {
         data.equipes.forEach((element) => {
-          data.classificacao.push({ campeonato_id: data.id, grupo: 1, equipe_id: element.id });
+
+          const classif = new Classificacao({ grupo: 1, equipeId: element.id });
+
+          data.classificacao.push(classif);
         });
       } else {
         let arrayEquipesSorteadas = [];
@@ -32,7 +45,9 @@ module.exports = (Model) => {
               indexEquipeSorteada = Math.floor(Math.random() * data.qtde_equipes);
             } while (arrayEquipesSorteadas.indexOf(indexEquipeSorteada) >= 0);
             arrayEquipesSorteadas.push(indexEquipeSorteada);
-            data.classificacao.push({ campeonato_id: data.id, grupo: i, equipe_id: data.equipes[indexEquipeSorteada].id });
+            const classif123 = new Classificacao({ grupo: i, equipeId: data.equipes[indexEquipeSorteada].id });
+
+            data.classificacao.push(classif123);
           }
         }
       }
@@ -40,6 +55,3 @@ module.exports = (Model) => {
     });
   };
 };
-
-
-

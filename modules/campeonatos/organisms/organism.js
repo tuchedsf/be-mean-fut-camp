@@ -1,9 +1,9 @@
-'use strict';
+// 'use strict';
 
 const CampeonatoSchema = require('../molecules/molecule');
-const Campeonato = require('../../../modules/model')('Campeonato',CampeonatoSchema);
+const Campeonato = require('../../../modules/model')('Campeonato', CampeonatoSchema);
 
-//actions
+// actions
 const create = require('../actions/action-create')(Campeonato);
 const find = require('../actions/action-find')(Campeonato);
 const findOne = require('../actions/action-findOne')(Campeonato);
@@ -14,23 +14,27 @@ const removerOrganizador = require('../actions/action-organizador-remover')(Camp
 const adicionarEquipe = require('../actions/action-equipes-adicionar')(Campeonato);
 const removerEquipe = require('../actions/action-equipes-remover')(Campeonato);
 const gerarClassificacao = require('../actions/action-gerar-classificacao')(Campeonato);
-//const classificar = require('../actions/action-autenticarUsuario')(Campeonato);
-//const gerarJogos = require('../actions/action-validarAutenticacao')(Campeonato);
+// const classificar = require('../actions/action-autenticarUsuario')(Campeonato);
+const gerarJogos = require('../actions/action-gerar-tabela-jogos')(Campeonato);
+const classificacao = require('../actions/action-consulta-classificacao')(Campeonato);
+// const jogos = require('../actions/action-consulta-jogos')(Campeonato);
 
 
 const campeonatoMethods = {
-	create
-	, find
-	, findOne
-	, update
-	, remove
-	//, classificar
-	//, gerarJogos
-	, adicionarOrganizador
-	, removerOrganizador
-  , adicionarEquipe
-	, removerEquipe
-  , gerarClassificacao
+  create,
+  find,
+  findOne,
+  update,
+  remove,
+  adicionarOrganizador,
+  removerOrganizador,
+  adicionarEquipe,
+  removerEquipe,
+  gerarClassificacao,
+  gerarJogos,
+  classificacao,
+  // jogos,
+  // atualizarClassificacao
 };
 
 module.exports = campeonatoMethods;

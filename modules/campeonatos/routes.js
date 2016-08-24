@@ -85,5 +85,23 @@ router.get('/:id/gerarClassificacao', (req, res) => {
   CampeonatoModel.gerarClassificacao(res, idCamp);
 });
 
+router.get('/:id/gerarJogos', (req, res) => {
+  console.log('gerarJogos campeonato');
+  const idCamp = req.params.id;
+  CampeonatoModel.gerarJogos(res, idCamp);
+});
+
+router.get('/:id/classificacao', (req, res) => {
+  console.log('lista classificacao');
+  const idCamp = req.params.id;
+  CampeonatoModel.classificacao(res, idCamp);
+});
+
+// router.get('/:id/jogos', (req, res) => {
+//   console.log('gerarJogos campeonato');
+//   const idCamp = req.params.id;
+//   CampeonatoModel.jogos(res, idCamp);
+// });
+
 
 module.exports = router;

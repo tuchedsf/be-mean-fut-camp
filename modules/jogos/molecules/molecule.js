@@ -1,29 +1,32 @@
-'use strict';
+// 'use strict';
 
 const mongoose = require('mongoose');
 
-const campeonato_id = { type:Schema.Types.ObjectId, ref:'Campeonato'};
-const rodada = { type: Number, required: true}; 
-const mandante = { type: Number, required: true}; 
-const visitante = { type: Number, required: true}; 
-const placar_mandante = { type: Number, required: true, default: 0}; 
-const placar_visitante = { type: Number, required: true, default: 0}; 
-const auditoria_mandante = { identificador_equioe: mandante, placar_mandante: placar_mandante, placar_visitante: placar_visitante};
-const auditoria_visitante = { identificador_equioe: visitante, placar_mandante: placar_mandante, placar_visitante: placar_visitante};
+const Schema = mongoose.Schema;
+
+const rodada = { type: Number, required: true };
+const grupo = { type: Number, required: true };
+const mandante = { type: Schema.Types.ObjectId, ref: 'Equipes' };
+const visitante = { type: Schema.Types.ObjectId, ref: 'Equipes' };
+const placarMandante = { type: Number, required: true, default: 0 };
+const placarVisitante = { type: Number, required: true, default: 0 };
+const auditoriaMandante = { equipeId: mandante, placarMandante, placarVisitante };
+const auditoriaVisitante = { equipeId: visitante, placarMandante, placarVisitante };
+const valido = { type: Boolean, required: true, default: false };
 
 
-const _schema = {
-	campeonato_id 
-	, rodada
-	, mandante
-	, visitante
-	, placar_mandante
-	, placar_visitante
-	, auditoria_mandante 
-	, auditoria_visitante
-}
+const schema = {
+  rodada,
+  grupo,
+  mandante,
+  visitante,
+  placarMandante,
+  placarVisitante,
+  auditoriaMandante,
+  auditoriaVisitante,
+  valido,
+};
 
-const schemaName = new mongoose.Schema(_schema);
+const jogosSchema = new Schema(schema);
 
-module.exports = schemaName;
-}
+module.exports = jogosSchema;
