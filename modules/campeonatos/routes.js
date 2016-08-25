@@ -97,11 +97,11 @@ router.get('/:id/classificacao', (req, res) => {
   CampeonatoModel.classificacao(res, idCamp);
 });
 
-// router.get('/:id/jogos', (req, res) => {
-//   console.log('gerarJogos campeonato');
-//   const idCamp = req.params.id;
-//   CampeonatoModel.jogos(res, idCamp);
-// });
+router.get('/:id/jogos', (req, res) => {
+  console.log('lista jogos do campeonato');
+  const idCamp = req.params.id;
+  CampeonatoModel.jogos(res, idCamp);
+});
 
 
 module.exports = router;

@@ -17,7 +17,7 @@ const gerarClassificacao = require('../actions/action-gerar-classificacao')(Camp
 // const classificar = require('../actions/action-autenticarUsuario')(Campeonato);
 const gerarJogos = require('../actions/action-gerar-tabela-jogos')(Campeonato);
 const classificacao = require('../actions/action-consulta-classificacao')(Campeonato);
-// const jogos = require('../actions/action-consulta-jogos')(Campeonato);
+const jogos = require('../actions/action-consulta-jogos')(Campeonato);
 
 
 const campeonatoMethods = {
@@ -33,7 +33,7 @@ const campeonatoMethods = {
   gerarClassificacao,
   gerarJogos,
   classificacao,
-  // jogos,
+  jogos,
   // atualizarClassificacao
 };
 
