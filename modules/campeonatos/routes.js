@@ -103,5 +103,15 @@ router.get('/:id/jogos', (req, res) => {
   CampeonatoModel.jogos(res, idCamp);
 });
 
+router.get('/:id/jogo/:idJogo/placarMandante/:placarMandante/placarVisitante/:placarVisitante', (req, res) => {
+  console.log('atualizar resultado Partida');
+  const idCamp = req.params.id;
+  const idJogo = req.params.idJogo;
+  const placarMandante = req.params.placarMandante;
+  const placarVisitante = req.params.placarVisitante;
+  const idUser = req.user.id;
+  CampeonatoModel.atualizarPlacar(res, idCamp, idJogo, idUser, placarMandante, placarVisitante);
+});
+
 
 module.exports = router;
