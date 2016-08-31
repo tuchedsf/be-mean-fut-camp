@@ -10,8 +10,8 @@ const mandante = { type: Schema.Types.ObjectId, ref: 'Equipes' };
 const visitante = { type: Schema.Types.ObjectId, ref: 'Equipes' };
 const placarMandante = { type: Number, required: true, default: 0 };
 const placarVisitante = { type: Number, required: true, default: 0 };
-const auditoriaMandante = { equipeId: mandante, placarMandante, placarVisitante };
-const auditoriaVisitante = { equipeId: visitante, placarMandante, placarVisitante };
+const auditoriaMandante = { equipeId: mandante, placarMandante, placarVisitante, update_at: { type: Date } };
+const auditoriaVisitante = { equipeId: visitante, placarMandante, placarVisitante, update_at: { type: Date } };
 const valido = { type: Boolean, required: true, default: false };
 
 

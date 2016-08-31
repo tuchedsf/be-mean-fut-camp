@@ -55,7 +55,7 @@ let id = 0;
   //let email = '';
   console.log('Usuario' + user._id);
   describe( "Create campeonato", () => {
-    it('expect add a campeonato on /campeonatos POST', function(done) {
+    it('expect add a campeonato on /campeonatos POST', function() {
       chai.request(app)
         .post('/V1/api/campeonato/new')
         .send(campeonato)
@@ -74,7 +74,7 @@ let id = 0;
             // expect(res.body.data.email).to.equal('tuchedsf@gmail.com');
             id = res.body._id;
            // email = res.body.data.email;
-           done();
+           //done();
         });
     });
   });
