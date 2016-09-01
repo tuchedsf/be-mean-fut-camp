@@ -9,10 +9,9 @@ const actionAtualizaClassificacao = require('./action-atualizar-classificacao');
 
 module.exports = (Model) => {
   return (res, idCamp, idJogo, idUser, placarMandante, placarVisitante) => {
-
     let indexJogo = -1;
     Model.findOne({ _id: idCamp }).sort({ grupo: 1 })
-      .exec((err, data) => { 
+      .exec((err, data) => {
       //  console.log(placarMandante);
        // console.log(placarVisitante);
         // valida se jogo é do campeonato e é valido.
@@ -27,22 +26,19 @@ module.exports = (Model) => {
           data.jogos[indexJogo].valido = true;
           data.jogos[indexJogo].placarVisitante = placarVisitante;
           data.jogos[indexJogo].placarMandante = placarMandante;
-
         } else {
-
           if (data.jogos[indexJogo].valido) {
             return callback(error.jogoValidado, '', res, 1, 1);
-            console.log('erro jogo ja foi validado não é possível editar o placar do jogo');
+            // console.log('erro jogo ja foi validado não é possível editar o placar do jogo');
           }
            // se nao for organizador valida se o usuario é o responsável pelo time mandante/visitante do jogo
-           const isMandante = isMandanteOrVisitante(data.jogos[indexJogo].mandante, idUser, data.equipes);
-           const isVisitante = isMandanteOrVisitante(data.jogos[indexJogo].visitante, idUser, data.equipes);
-           console.log(isMandante);
-           console.log(isVisitante);
+          const isMandante = isMandanteOrVisitante(data.jogos[indexJogo].mandante, idUser, data.equipes);
+          const isVisitante = isMandanteOrVisitante(data.jogos[indexJogo].visitante, idUser, data.equipes);
 
-           if (!isMandante && !isVisitante) {
-            console.log('Operação inválida!!time do usuario nao é mandante/visitante da partida');
-           }
+          if (!isMandante && !isVisitante) {
+            return callback(error.timeNMandanteVisist, '', res, 1, 1);
+            // console.log('Operação inválida!!time do usuario nao é mandante/visitante da partida');
+          }
         // se usuario for mandante atualiza auditoria mandante e verifica se auditoria visitante esta preenchida, se não
         // apenas atualiza auditoria e pronto . Se sim realiza batimento do placar auditoria mandante e auditoria visitante
         // se tiverem iguais atualiza o resultado oficial e marca flag como valido se não apenas atualiza a auditoria
@@ -52,7 +48,7 @@ module.exports = (Model) => {
             data.jogos[indexJogo].auditoriaMandante.placarVisitante = placarVisitante;
             data.jogos[indexJogo].auditoriaMandante.placarMandante = placarMandante;
             data.jogos[indexJogo].auditoriaMandante.update_at = Date.now();
-          }else {
+          } else {
             data.jogos[indexJogo].auditoriaVisitante.placarVisitante = placarVisitante;
             data.jogos[indexJogo].auditoriaVisitante.placarMandante = placarMandante;
             data.jogos[indexJogo].auditoriaVisitante.update_at = Date.now();
@@ -77,13 +73,13 @@ module.exports = (Model) => {
         }
 
         // atualiza o jogo///
-        Model.update({ _id: idCamp }, data, '', (err, success) => {
-          if (err) return callback(err, success, res, 0, 0);
+        Model.update({ _id: idCamp }, data, '', (erro, success) => {
+          if (erro) return callback(erro, success, res, 0, 0);
           // se atualizou o jogo oficialmente. chama rotina de atualizar classificacao
           if (data.jogos[indexJogo].valido) {
             actionAtualizaClassificacao(Model, data, data.jogos[indexJogo], res);
           } else {
-            return callback(err, success, res, 0, 0);
+            return callback(erro, success, res, 0, 0);
           }
         });
       });

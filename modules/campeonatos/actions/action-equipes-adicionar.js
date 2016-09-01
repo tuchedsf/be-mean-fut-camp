@@ -9,10 +9,9 @@ const Equipe = require('../../../modules/model')('Equipes', EquipeSchema);
 
 const isEquipeJaInscritaCampeonato = (equipe, equipes) => {
  // percurre o array e verifica se há coincidencia ou não
-  if (equipes.length > 0) {
+  if (equipes.length) {
     const userIdEq = equipes.every(item => item.user_id === equipe.user_id);
     const timeEq = equipes.every(item => item.time === equipe.time);
-    console.log(timeEq);
     if (userIdEq && timeEq) return true;
   }
   return false;
