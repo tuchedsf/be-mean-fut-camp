@@ -15,8 +15,8 @@ const UserOrganism = require('../organisms/organism');
 describe("Organism User Test", () => {
 
   const user = {
-    email: 'tuchedsf@gmail.com'
-    , password: 'admin'
+    email: 'testeUser@gmail.com'
+    , password: 'teste'
   };
 
   let id = 0;
@@ -38,7 +38,7 @@ describe("Organism User Test", () => {
             expect(res.body.data).to.include.keys('_id');
             expect(res.body.data).to.include.keys('created_at');
             //testando valores
-            expect(res.body.data.email).to.equal('tuchedsf@gmail.com');
+            expect(res.body.data.email).to.equal('testeUser@gmail.com');
             id = res.body.data._id;
             email = res.body.data.email;
            done();

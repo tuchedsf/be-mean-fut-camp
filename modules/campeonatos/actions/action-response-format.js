@@ -26,7 +26,7 @@ module.exports = (res,data) => {
         var newData = [];
         data.forEach((element, index) => {
           newData.push({
-            location : removeStringFromRequestURL(res.req.originalUrl, '/find') + element._id,
+            location : removeStringFromRequestURL(res.req.originalUrl, 'find') + element._id,
             data: element 
           });
         });
@@ -41,7 +41,7 @@ module.exports = (res,data) => {
     case 'POST':
       if (res.req.originalUrl == '/V1/api/campeonatos/new') {
         obj_response = {
-          location : removeStringFromRequestURL(res.req.originalUrl, '/new') + data._id,
+          location : removeStringFromRequestURL(res.req.originalUrl, 'new') + data._id,
           data: data 
         }
       }

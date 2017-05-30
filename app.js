@@ -9,6 +9,7 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const jwt = require('jwt-simple');
+const cors = require('cors');
 
 const routes = require('./routes/index');
 //const campAPI = require('./modules/campeonato/routes');
@@ -17,6 +18,7 @@ const campeonatoAPI = require('./modules/campeonatos/routes');
 
 const app = express();
 
+app.use(cors());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

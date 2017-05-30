@@ -48,7 +48,9 @@ module.exports = (Model) => {
             data.jogos[indexJogo].auditoriaMandante.placarVisitante = placarVisitante;
             data.jogos[indexJogo].auditoriaMandante.placarMandante = placarMandante;
             data.jogos[indexJogo].auditoriaMandante.update_at = Date.now();
-          } else {
+          } 
+          
+          if (isVisitante){
             data.jogos[indexJogo].auditoriaVisitante.placarVisitante = placarVisitante;
             data.jogos[indexJogo].auditoriaVisitante.placarMandante = placarMandante;
             data.jogos[indexJogo].auditoriaVisitante.update_at = Date.now();

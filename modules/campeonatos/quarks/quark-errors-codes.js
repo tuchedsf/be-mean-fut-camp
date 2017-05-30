@@ -1,6 +1,5 @@
 'use strict';
 
-
 const campeonatoUserinvalid = {
   status: 401,
   code: 2000,

@@ -7,6 +7,7 @@ const emparearVolta = require('./action-emparear-volta');
 const reposicionaTimes = require('./action-reposicionaTimes');
 
 module.exports = (qtdeGrupos, classificacao, timesPorGrupo, idaVolta) => {
+
   const empareamentos = [];
   let empareamentosFinal = [];
   let ultimaRodadaPrimeiraFase = 0;
@@ -19,7 +20,7 @@ module.exports = (qtdeGrupos, classificacao, timesPorGrupo, idaVolta) => {
     });
 
     // se numero de equipes for impar cria uma equipe ficticia.
-     console.log(times);
+    // console.log(times);
     if (isImpar(timesPorGrupo)) {
       times.push(timeNulo);
     }
@@ -29,12 +30,15 @@ module.exports = (qtdeGrupos, classificacao, timesPorGrupo, idaVolta) => {
       timesA.push(times[index]);
       timesB.push(times[(times.length - 1) - index]);
     }
-     //console.log('inicio a:' + timesA);
-     // console.log('inicio b:' + timesB);
+    // console.log('inicio a:' + timesA);
+    // console.log('inicio b:' + timesB);
     // com array de times montado gerar os empareamentos.
-     //console.log(times.length - 1);
+    // console.log(times.length - 1);
 
-    for (let index = 1; index < (times.length - 1); index++) {
+    let index = 1;
+    const numRodadas = isImpar(timesPorGrupo) ? (2 * timesPorGrupo) : ((2 * timesPorGrupo) - 2);
+    console.log('numRodadas' + numRodadas);
+    do {
       emparear(timesA, timesB, index, i).forEach((element) => {
         empareamentos.push(element);
       });
@@ -45,7 +49,21 @@ module.exports = (qtdeGrupos, classificacao, timesPorGrupo, idaVolta) => {
       // console.log(timesA);
       // console.log(timesB);
       ultimaRodadaPrimeiraFase = index;
-    }
+      index += 1;
+    } while (empareamentos.length < numRodadas);
+
+    // for (let index = 1; index < (times.length - 1); index++) {
+    //   emparear(timesA, timesB, index, i).forEach((element) => {
+    //     empareamentos.push(element);
+    //   });
+
+    //   times = reposicionaTimes(timesA, timesB);
+    //   timesA = times.slice(0, timesA.length);
+    //   timesB = times.slice(timesA.length, times.length);
+    //   // console.log(timesA);
+    //   // console.log(timesB);
+    //   ultimaRodadaPrimeiraFase = index;
+    // }
   }
   // montaJogosCasoIdaEVolta
   // console.log(empareamentos);

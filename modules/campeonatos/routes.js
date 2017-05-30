@@ -6,7 +6,8 @@ const CampeonatoModel = require('../campeonatos/organisms/organism');
 const UserModel = require('../users/organisms/organism');
 
  // router.all é executado para todos os verbos http.
-router.all('*', UserModel.validarAutenticacao, (req, res, next) => {
+//router.all('*', UserModel.validarAutenticacao, (req, res, next) => {
+router.all('*', (req, res, next) => {
   // console.log('all campeonato');
   next();
 });

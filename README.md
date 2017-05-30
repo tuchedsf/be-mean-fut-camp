@@ -190,11 +190,12 @@ Resposta:
 - AdicionarEquipe
 - RemoverEquipe
 - GerarClassificacao
-- AtualizarClassificacao -> Não
-- GerarTabelaJogos -> Não
+- AtualizarClassificacao
+- GerarTabelaJogos
+- AtualizarResultadoJogo
 
 #### Rotas Jogos
-- AtualizarResultado -> Não
+
 
 ##### Retorno em caso de erro 
 Abaixo exemplo como serão retornados os erros da api...

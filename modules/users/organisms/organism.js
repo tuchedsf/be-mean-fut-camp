@@ -1,9 +1,9 @@
 'use strict';
 
 const UserSchema = require('../molecules/molecule');
-const User = require('../../../modules/model')('Usuarios',UserSchema);
+const User = require('../../../modules/model')('Usuarios', UserSchema);
 
-//actions
+// actions
 const create = require('../actions/action-create')(User);
 const find = require('../actions/action-find')(User);
 const findOne = require('../actions/action-findOne')(User);
@@ -15,14 +15,14 @@ const validarAutenticacao = require('../actions/action-validarAutenticacao')(Use
 const user = () => User;
 
 const userMethods = {
-	create
-	, find
-	, findOne
-	, update
-	, remove
-	, autenticarUsuario
-	, validarAutenticacao
-	, user
+  create,
+  find,
+  findOne,
+  update,
+  remove,
+  autenticarUsuario,
+  validarAutenticacao,
+  user,
 };
 
 module.exports = userMethods;

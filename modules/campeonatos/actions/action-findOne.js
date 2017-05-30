@@ -5,12 +5,20 @@ const ClassificacaoSchema = require('../../classificacao/molecules/molecule');
 const Classificacao = require('../../../modules/model')('Classificacao',ClassificacaoSchema);
 const EquipeSchema = require('../../equipe/molecules/molecule');
 const Equipe = require('../../../modules/model')('Equipes',EquipeSchema);
+const error = require('../quarks/quark-errors-codes');
+
 
 module.exports = (Model) => {
 	return (res, id) => {
 		Model.findOne({_id: id }).populate('organizadores').exec((err,data)=> {
 
-			//get 
+   //    console.log(err);
+   //    console.log(data);
+			// //get 
+     
+     if (err) {
+      err = error.campeonatoUserinvalid;
+     } //
 
 				// data.classificacao.forEach((element)=> {
 				// 		Classificacao.populate(element, {path: 'equipeId'}, function (err, doc) {
